@@ -17,6 +17,7 @@
 package com.iohao.game.collect.one;
 
 import com.iohao.game.bolt.broker.client.AbstractBrokerClientStartup;
+import com.iohao.game.bolt.broker.client.external.ExternalServer;
 import com.iohao.game.collect.external.GameExternalBoot;
 import com.iohao.game.collect.hall.HallClientStartup;
 import com.iohao.game.collect.tank.TankClientStartup;
@@ -33,7 +34,7 @@ import java.util.List;
 public class GameOne {
     public static void main(String[] args) {
 
-        // 逻辑服列表
+        // 逻辑服列表【订阅者】
         List<AbstractBrokerClientStartup> logicServer = List.of(
                 // 大厅
                 new HallClientStartup(),
@@ -41,14 +42,20 @@ public class GameOne {
                 new TankClientStartup()
         );
 
+        // 对外服（客户端连接）【发布者】
+        ExternalServer externalServer = new GameExternalBoot().createExternalServer();
+
         // 简单启动器 RunOne (谐音:拳皇97中的 round one ready go!)
-        new SimpleRunOne()
+        SimpleRunOne allInOne = new SimpleRunOne()
                 // 对外服
-                .setExternalServer(new GameExternalBoot().createExternalServer())
+                .setExternalServer(externalServer)
                 // 逻辑服列表
-                .setLogicServerList(logicServer)
-                // 启动 对外服、网关、逻辑服
-                .startup();
+                .setLogicServerList(logicServer);
+
+        System.out.println(">> AllInOne Game Server is starting...");
+
+        // 启动 对外服、网关、逻辑服
+        allInOne.startup();
 
         // see : TankApp.java  （坦克游戏客户端启动类）
     }
