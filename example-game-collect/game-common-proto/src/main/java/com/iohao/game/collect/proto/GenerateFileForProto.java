@@ -46,6 +46,8 @@ public class GenerateFileForProto {
         // 源码目录
         String protoSourcePath = ArrayUtil.join(protoSourcePathArray, File.separator);
 
+        System.out.println("protoPath: " + protoSourcePath);
+
         String[] generateFolderArray = new String[]{
                 SystemUtil.getUserInfo().getCurrentDir()
                 , "example-game-collect"
@@ -56,6 +58,8 @@ public class GenerateFileForProto {
 
         // 生成 .proto 文件存放的目录
         String generateFolder = ArrayUtil.join(generateFolderArray, File.separator);
+
+        System.out.println("protoFile: " + generateFolder);
 
         ProtoGenerateFile protoGenerateFile = ProtoGenerateFile.builder()
                 // 源码目录

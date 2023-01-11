@@ -37,7 +37,7 @@ import java.util.Map;
 @FieldDefaults(level = AccessLevel.PUBLIC)
 @ProtoFileMerge(fileName = GameProtoFile.TANK_FILE_NAME, filePackage = GameProtoFile.TANK_FILE_PACKAGE)
 public class TankPlayer {
-    /** 玩家id */
+    /** 玩家ID */
     long id;
 
     /** 坦克 血条 */
