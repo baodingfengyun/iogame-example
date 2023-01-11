@@ -28,7 +28,7 @@
         <dependency>
             <groupId>com.iohao.game</groupId>
             <artifactId>broker-starter-monitor-logic</artifactId>
-            <version>${ioGame.version}</version>
+            <version>17.1.25</version>
         </dependency>
 
     </dependencies>
