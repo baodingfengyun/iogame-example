@@ -52,7 +52,7 @@ public class GenerateFileForProto {
                 SystemUtil.getUserInfo().getCurrentDir()
                 , "example-game-collect"
                 , "game-common-proto"
-                , "target"
+                //, "target" // 不再生成到target目录下面，永久保留生成结果
                 , "proto"
         };
 

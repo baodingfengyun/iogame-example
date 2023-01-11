@@ -1,0 +1,81 @@
+syntax = "proto3";
+package pb.tank;
+
+// 全服广播
+message TankBroadcastMessage {
+  string msg = 1;
+
+}
+
+// 坦克游戏中位置相关的：（坦克、子弹的位置）
+message TankLocation {
+  // x 轴
+  int32 x = 1;
+  // y 轴
+  int32 y = 2;
+  // 方向 H
+  int32 directionH = 3;
+  // 方向 V
+  int32 directionV = 4;
+  // 玩家 id
+  int64 playerId = 5;
+  // hash
+  int32 hash = 6;
+
+}
+
+// 
+message TheHelloMessage {
+  int32 amount = 1;
+  repeated int64 userIds = 2;
+
+}
+
+// 玩家的坦克
+message TankPlayer {
+  // 玩家ID
+  int64 id = 1;
+  // 坦克 血条
+  int64 hp = 2;
+  // 坦克 所属队伍
+  int32 team = 3;
+  // 坦克 速度
+  int32 speed = 4;
+  // 坦克 皮肤
+  int32 skin = 5;
+  // 坦克位置
+  TankLocation tankLocation = 6;
+  // 坦克子弹: key: 子弹 id 1 玩具弹, 2 雪弹; value : 数量
+  map<int32,int32> tankBulletMap = 7;
+
+}
+
+// 房间广播 定时 帧
+message TankRoomBroadcastRes {
+  // 玩家坦克列表
+  repeated TankPlayer tankPlayers = 1;
+
+}
+
+// 坦克子弹
+message TankBullet {
+  // 子弹的位置
+  TankLocation tankLocation = 1;
+  // 所属玩家
+  int64 playerId = 2;
+  // 测试字段
+  int64 amount = 3;
+
+}
+
+// 进入(坦克)房间
+message TankEnterRoom {
+  // 房间id
+  int64 roomId = 1;
+  // 坦克 所属队伍 (加入哪个队伍)
+  int32 team = 2;
+  // 玩家坦克列表
+  repeated TankPlayer tankPlayerList = 3;
+
+}
+

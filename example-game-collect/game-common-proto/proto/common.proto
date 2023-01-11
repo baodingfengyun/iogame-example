@@ -1,0 +1,19 @@
+syntax = "proto3";
+package pb.common;
+
+// 登录验证
+message LoginVerify {
+  // jwt
+  string jwt = 1;
+
+}
+
+// 用户信息
+message UserInfo {
+  // id
+  int64 id = 1;
+  // 用户名
+  string name = 2;
+
+}
+
