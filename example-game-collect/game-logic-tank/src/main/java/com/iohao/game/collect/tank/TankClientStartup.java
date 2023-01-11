@@ -47,7 +47,7 @@ public class TankClientStartup extends AbstractBrokerClientStartup {
 
     @Override
     public BarSkeleton createBarSkeleton() {
-
+        // 配置
         BarSkeletonBuilderParamConfig config = new BarSkeletonBuilderParamConfig()
                 // 扫描 action 类所在包
                 .scanActionPackage(TankAction.class)

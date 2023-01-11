@@ -27,6 +27,8 @@ import com.iohao.game.collect.common.GameBarSkeletonConfig;
 import com.iohao.game.collect.hall.action.TankLoginAction;
 
 /**
+ * 大厅逻辑服
+ *
  * @author 渔民小镇
  * @date 2022-02-02
  */
@@ -38,6 +40,7 @@ public class HallClientStartup extends AbstractBrokerClientStartup {
 
     @Override
     public BarSkeleton createBarSkeleton() {
+        // 配置
         BarSkeletonBuilderParamConfig config = new BarSkeletonBuilderParamConfig()
                 // 扫描 action 类所在包
                 .scanActionPackage(TankLoginAction.class);
