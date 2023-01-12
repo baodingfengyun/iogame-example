@@ -5,7 +5,6 @@ package com.iohao.game.collect.one;
  */
 public class ContendedDemo {
 
-    @jdk.internal.vm.annotation.Contended
     public volatile long x;
     public volatile long y;
 
